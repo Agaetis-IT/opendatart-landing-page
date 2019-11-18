@@ -48,7 +48,7 @@ function Statistics() {
             <Typography className={classes.value}>
               1.4{" "}
               <Typography className={classes.unit} component="span">
-                Md
+                Milliard
               </Typography>
             </Typography>
             <Typography className={classes.label}>de points</Typography>
