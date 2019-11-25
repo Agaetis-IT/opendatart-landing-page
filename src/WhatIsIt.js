@@ -3,8 +3,8 @@ import { makeStyles, Container, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: 100,
-    marginBottom: 100
+    marginTop: 50,
+    marginBottom: 50
   },
   title: { marginBottom: 32 }
 }));
@@ -18,15 +18,11 @@ function WhatIsIt() {
         OpenDatart, c'est quoi ?
       </Typography>
       <Typography>
-        Dans un monde où l'on récolte et produit de plus en plus de données.
-        Dolore est tempor laboris tempor irure laboris commodo minim fugiat in.
-        Cupidatat consectetur enim magna tempor consectetur consectetur ex nulla
-        dolore sit. Excepteur eu commodo eu tempor enim fugiat officia cupidatat
-        cillum. Incididunt irure dolor velit aliqua sint anim est cillum
-        exercitation deserunt elit. Amet velit incididunt et adipisicing ut
-        laboris ullamco adipisicing Lorem fugiat. Deserunt sunt duis magna enim
-        deserunt dolor do laboris ipsum occaecat. Labore ut qui occaecat ut.
-        Pariatur ut quis sit qui ullamco nostrud.
+        <b>OpenDatart met en forme des données publiques de manière artistique !</b><br/><br/>
+        Dans un monde où l'on récolte et produit de plus en plus de données il est difficile de les appréhender, de se les représenter,
+        pour la simple raison qu'il n'existe pas vraiment de moyen de les rendre plus visuelles.<br/><br/>
+        C'est un gâchis de potentiel car chaque donnée possède son sens propre, qu'il soit pratique, engagé ou simplement informatif... En effet, les données en général sont souvent utiles pour mieux comprendre le monde qui nous entoure.<br/><br/>
+        Cependant grâce à OpenDatart elles peuvent maintenant être agréables à regarder ! Nous convertissons de grands ensembles de données puis nous les représentons sous forme graphique, aidant à leur compréhension. Le principe est de ne pas perdre le sens ou le message originel tout en le rendant attrayant, en l'enrichissant.
       </Typography>
     </Container>
   );

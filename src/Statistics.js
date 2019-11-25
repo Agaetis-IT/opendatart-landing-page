@@ -72,7 +72,7 @@ function Statistics() {
             <Typography className={classes.value}>
               3.5{" "}
               <Typography className={classes.unit} component="span">
-                ans
+                années
               </Typography>
             </Typography>
             <Typography className={classes.label}>de données</Typography>

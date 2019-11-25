@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "./Hero";
 import WhatIsIt from "./WhatIsIt";
-import Why from "./Why";
+import WhatWeCanDo from "./WhatWeCanDo";
 import Statistics from "./Statistics";
 import Footer from "./Footer";
 import Contact from "./Contact";
@@ -11,6 +11,9 @@ const useStyles = makeStyles(theme => ({
   "@global": {
     html: {
       scrollBehavior: "smooth"
+    },
+    body: {
+      color: 'black'
     }
   }
 }));
@@ -21,7 +24,7 @@ function App() {
     <>
       <Hero />
       <WhatIsIt />
-      <Why />
+      <WhatWeCanDo />
       <Statistics />
       <Contact />
       <Footer />

@@ -54,9 +54,10 @@ function Contact() {
   return (
     <form className={classes.root} onSubmit={handleSubmit}>
       <Container maxWidth="md">
-        <Typography variant="h3">Vous voulez être tenu au courant ?</Typography>
+        <Typography variant="h3">Vous êtes intéressé ?</Typography>
+        <br/>
         <Typography>
-          Donnez nous votre email et nous vous préviendrons quand les premiers posters seront disponibles !
+          Donnez nous votre email et nous vous préviendrons quand les premiers éléments seront disponibles et à prix réduit !
         </Typography>
         <Box mt={4} display="flex" flexDirection="row" alignItems="center">
           <TextField
