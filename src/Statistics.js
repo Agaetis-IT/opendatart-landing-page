@@ -12,7 +12,7 @@ import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: 100,
+    marginTop: 50,
     marginBottom: 100
   },
   title: { marginBottom: 32 },

@@ -1,101 +1,125 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactSwipe from 'react-swipe'
-import heroImg from "./images/hero.jpg"
-import cute from "./images/cute.png"
-import { CardMedia, IconButton, makeStyles } from '@material-ui/core';
+import nyc from "./images/gallery/image-porto-cab.png"
+import nyc2 from "./images/gallery/image-nyc-cab2.png"
+import porto from "./images/gallery/image-porto-cab2.png"
+import porto2 from "./images/gallery/image-porto-cab4.png"
+import nyc3 from "./images/gallery/points1B-log-green-orange.png"
+import nyc4 from "./images/gallery/points16 (1).png"
+import nyc5 from "./images/gallery/points16.png"
+import tshirt from "./images/gallery/tshirt.jpg"
+import hat from "./images/gallery/hat.jpg"
+import {  IconButton, makeStyles, } from '@material-ui/core';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons'
+import useInterval from './useInterval'
+import mediumZoom from 'medium-zoom';
+import clsx from 'clsx';
 
-const images = [heroImg, cute]
+const images = [nyc, nyc2, nyc3, nyc4, nyc5, tshirt, porto, porto2, hat]
 
 const useStyles = makeStyles({
     root: {
-      height: 500,
+      height: '100vw',
+      maxHeight: 534,
+      marginTop: 50,
       position: 'relative',
     },
     swipe: {
       maxHeight: 'inherit',
+      '& > div': {
+        display: 'flex'
+      }
     },  
     image: {
-      height: 534,
-      width: '100%',
-    },
-    landscape: {
-      height: 242,
-      width: '100%',
+      maxHeight: 534,
+      maxWidth: '100%',
     },
     arrowBack: {
       position: 'absolute',
       top: 240,
       left: 0,
-      color: 'white',
-    },
-    arrowBackLandscape: {
-      position: 'absolute',
-      top: 90,
-      left: 0,
-      color: 'white',
+      color: '#ddd',
+      '@media screen and (max-width: 534px)': {
+        top: '33vw'
+      }
     },
     arrowForward: {
       position: 'absolute',
       top: 240,
       right: 0,
-      color: 'white',
+      color: '#ddd',
+      '@media screen and (max-width: 534px)': {
+        top: '33vw'
+      }
     },
-    arrowForwardLandscape: {
-      position: 'absolute',
-      top: 90,
-      right: 0,
-      color: 'white',
-    },
+    wrapper: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }
 })
 
 const Gallery = () => {
     const classes = useStyles()
-    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const [isAutoSwipeActive, setAutoSwipeActive] = useState(true)
     const reactSwipeEl = React.createRef()
 
-    const handleClickNext = () => {
-        reactSwipeEl.current.next()
-        setCurrentImageIndex(currentImageIndex + 1)
-      }
-      const handleClickPrev = () => {
-        reactSwipeEl.current.prev()
-        setCurrentImageIndex(currentImageIndex - 1)
-      }
+    useInterval(() => {
+      handleNext()
+    }, isAutoSwipeActive ? 5000 : null);
+
+    const handleNext = (e) => {
+      e && e.stopPropagation()
+      reactSwipeEl.current.next()
+    }
+    const handlePrev = (e) => {
+      e.stopPropagation()
+      reactSwipeEl.current.prev()
+    }
+
+    const toggleAutoSwipe = (forceStatus) => () => {
+      return setAutoSwipeActive(forceStatus)
+    }
+    
+    useEffect(() => {
+      setTimeout(() => {
+        const images = [
+          ...document.querySelectorAll('[data-zoomable]'),
+        ]
+        mediumZoom(images, { background: '#333' })
+      }, 2000)
+    }, [])
 
     return (
-        <div className={classes.root}>
+      <div>
+        <div className={classes.root} onMouseOver={toggleAutoSwipe(false)} onMouseOut={toggleAutoSwipe(true)}>
             <ReactSwipe
-            swipeOptions={{auto: 4000}}
-            //{{ continuous: false, disableScroll: true }}
             childCount={images.length}
             ref={reactSwipeEl}
             className={classes.swipe}
         >
             {images.map((image, index) => (
-                <CardMedia
-                    image={image}
-                    key={index}
-                    className={classes.image}
-                    /*classNames(landscape ? classes.landscape : */
-                    //onClick={() => onImageClicked && onImageClicked(image, currentImageIndex)}
+              <div key={index} className={clsx(classes.image, classes.wrapper)}>
+                <img
+                  src={image}
+                  data-zoomable
+                  className={classes.image}
+                  style={{ backgroundColor: 'black' }}
                 />
+              </div>
             ))}
         </ReactSwipe>
-        {currentImageIndex < images.length - 1 && (
-            <IconButton
-            onClick={handleClickNext}
-            /*landscape ? classes.arrowForwardLandscape : */
-            className={classes.arrowForward}
-            >
-            <ChevronRight style={{ fontSize: 50 }} />
-            </IconButton>
-        )}
-        {currentImageIndex !== 0 && images.length > 1 && (
-            <IconButton onClick={handleClickPrev} className={classes.arrowBack}>
-            <ChevronLeft style={{ fontSize: 50 }} />
-            </IconButton>
-        )}
+        <IconButton
+        onClick={handleNext}
+        /*landscape ? classes.arrowForwardLandscape : */
+        className={classes.arrowForward}
+        >
+        <ChevronRight style={{ fontSize: 50 }} />
+        </IconButton>
+        <IconButton onClick={handlePrev} className={classes.arrowBack}>
+        <ChevronLeft style={{ fontSize: 50 }} />
+        </IconButton>
+      </div>
       </div>
     )
 }
