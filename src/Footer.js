@@ -22,7 +22,7 @@ function Footer() {
           <span role="img" aria-label="amour">
             ❤️
           </span>{" "}
-          par une équipe de passionés de données à{" "}
+          par une équipe de passionnés de données à{" "}
           <Link href="https://www.agaetis.fr">Agaetis</Link>.
         </Typography>
         <Typography align="center">
