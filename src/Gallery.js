@@ -66,7 +66,8 @@ const Gallery = () => {
     return (
         <div className={classes.root}>
             <ReactSwipe
-            //swipeOptions={{ continuous: false, disableScroll: true }}
+            swipeOptions={{auto: 4000}}
+            //{{ continuous: false, disableScroll: true }}
             childCount={images.length}
             ref={reactSwipeEl}
             className={classes.swipe}

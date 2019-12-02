@@ -26,9 +26,9 @@ function App() {
       <Hero />
       <WhatIsIt />
       <WhatWeCanDo />
+      <Gallery />
       <Statistics />
       <Contact />
-      <Gallery />
       <Footer />
     </>
   );
