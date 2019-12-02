@@ -9,7 +9,8 @@
     "dom-confetti": "^0.1.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "react-swipe": "^6.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

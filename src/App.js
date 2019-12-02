@@ -6,6 +6,7 @@ import Statistics from "./Statistics";
 import Footer from "./Footer";
 import Contact from "./Contact";
 import { makeStyles } from "@material-ui/core";
+import Gallery from "./Gallery";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -27,6 +28,7 @@ function App() {
       <WhatWeCanDo />
       <Statistics />
       <Contact />
+      <Gallery />
       <Footer />
     </>
   );
