@@ -38,7 +38,7 @@ const useStyles = makeStyles({
       position: 'absolute',
       top: 240,
       left: 0,
-      color: '#ddd',
+      color: '#bbb',
       '@media screen and (max-width: 534px)': {
         top: '33vw'
       }
@@ -47,7 +47,7 @@ const useStyles = makeStyles({
       position: 'absolute',
       top: 240,
       right: 0,
-      color: '#ddd',
+      color: '#bbb',
       '@media screen and (max-width: 534px)': {
         top: '33vw'
       }
