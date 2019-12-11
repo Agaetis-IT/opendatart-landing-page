@@ -37,18 +37,30 @@ function Contact() {
   const classes = useStyles();
   const buttonRef = useRef();
   const [email, setEmail] = useState("");
-  const [formSended, setFormSended] = useState(false);
+  const [formSent, setFormSent] = useState(false);
   const [isCutePopupActive, setCutePopupActive] = useState(false);
 
+  const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
+
   function handleSubmit(e) {
-    e.preventDefault();
-    console.log(`TODO: Send ${email}`);
     confetti(buttonRef.current);
-    setFormSended(true);
+    setFormSent(true);
     setCutePopupActive(true);
     setTimeout(() => {
       setCutePopupActive(false);
     }, 2000);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", email: email })
+    })
+
+    e.preventDefault();
   }
 
   return (
@@ -66,7 +78,7 @@ function Contact() {
             onChange={e => setEmail(e.target.value)}
             label="Email"
             margin="dense"
-            disabled={formSended}
+            disabled={formSent}
             required
           />
           <Box ml={1}>
@@ -75,7 +87,7 @@ function Contact() {
               type="submit"
               variant="contained"
               color="primary"
-              disabled={formSended}
+              disabled={formSent}
             >
               Envoyer
             </Button>
