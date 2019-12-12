@@ -77,7 +77,9 @@ function Contact() {
             value={email}
             onChange={e => setEmail(e.target.value)}
             label="Email"
+            type="email"
             margin="dense"
+            name="email"
             disabled={formSent}
             required
           />
