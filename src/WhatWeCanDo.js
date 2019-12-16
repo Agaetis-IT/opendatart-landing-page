@@ -15,7 +15,7 @@ function WhatWeCanDo() {
 
   return (
     <div className={classes.root}>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Typography className={classes.title} variant="h3">
           Qu'est-ce que nous proposons concrètement ?
         </Typography>

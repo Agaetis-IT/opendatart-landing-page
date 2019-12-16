@@ -65,7 +65,7 @@ function Contact() {
 
   return (
     <form className={classes.root} onSubmit={handleSubmit}>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Typography variant="h3">Vous êtes intéressé ?</Typography>
         <br/>
         <Typography>

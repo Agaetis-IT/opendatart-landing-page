@@ -16,7 +16,7 @@ function Footer() {
 
   return (
     <div className={classes.root}>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Typography align="center" gutterBottom>
           Fait avec{" "}
           <span role="img" aria-label="amour">

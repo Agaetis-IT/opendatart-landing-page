@@ -20,7 +20,7 @@ const images = [nyc, nyc2, nyc3, nyc4, nyc5, tshirt, porto, porto2, hat]
 const useStyles = makeStyles({
     root: {
       height: '100vw',
-      maxHeight: 534,
+      maxHeight: 600,
       marginTop: 50,
       position: 'relative',
     },
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
       }
     },  
     image: {
-      maxHeight: 534,
+      maxHeight: 600,
       maxWidth: '100%',
     },
     arrowBack: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
       top: 240,
       left: 0,
       color: '#bbb',
-      '@media screen and (max-width: 534px)': {
+      '@media screen and (max-width: 600px)': {
         top: '33vw'
       }
     },
@@ -48,7 +48,7 @@ const useStyles = makeStyles({
       top: 240,
       right: 0,
       color: '#bbb',
-      '@media screen and (max-width: 534px)': {
+      '@media screen and (max-width: 600px)': {
         top: '33vw'
       }
     },

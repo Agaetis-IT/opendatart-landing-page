@@ -37,7 +37,7 @@ function Statistics() {
   const classes = useStyles();
 
   return (
-    <Container className={classes.root} maxWidth="md">
+    <Container className={classes.root} maxWidth="lg">
       <Typography className={classes.title} variant="h3">
         L'image de New-York c'est
       </Typography>
